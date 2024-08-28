@@ -1,18 +1,14 @@
-public class Solution {
+class Solution {
     public int[] solution(int[] array) {
-        // 초기화: 가장 큰 수와 그 인덱스를 저장할 변수
-        int maxValue = array[0];
-        int maxIndex = 0;
-        
-        // 배열을 순회하면서 최대값과 인덱스를 찾음
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] > maxValue) {
-                maxValue = array[i];
-                maxIndex = i;
+        int[] answer = new int[2];
+
+        for(int i = 0; i < array.length; i++) {
+            if(array[i] > answer[0]) {
+                answer[0] = array[i];
+                answer[1] = i;
             }
         }
-        
-        // 결과를 배열로 반환
-        return new int[]{maxValue, maxIndex};
+
+        return answer;
     }
 }
