@@ -1,11 +1,20 @@
+import java.util.ArrayList;
+
 class Solution {
     public int[] solution(int[] num_list, int n) {
-        int size = (num_list.length + n - 1) / n; // n 간격으로 선택된 원소들의 개수
-        int[] answer = new int[size];  // size만큼 배열 생성
-        int idx = 0;
-            
+        // int idx = 0;
+        
+        ArrayList<Integer> answerList = new ArrayList<>();
+        
+        //동적배열에 넣기
         for(int i = 0; i < num_list.length; i += n){
-                answer[idx++] = num_list[i]; 
+                answerList.add(num_list[i]); 
+        }
+        
+        // ArrayList를 int[] 배열로 변환
+        int[] answer = new int[answerList.size()];
+        for (int i = 0; i < answerList.size(); i++) {
+            answer[i] = answerList.get(i);
         }
         
         return answer;
