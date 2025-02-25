@@ -1,25 +1,17 @@
+import java.util.List;
+import java.util.ArrayList;
+
 class Solution {
     public int[] solution(int n) {
-        // 1. 약수 개수 세기
-        int count = 0;
+        
+    ArrayList<Integer> answer = new ArrayList<>();//동적 배열 생성
+
         for (int i = 1; i <= n; i++) {
             if (n % i == 0) {
-                count++; // 약수 개수 증가
+                answer.add(i); //리스트에 약수 추가
             }
         }
-
-        // 2. 정확한 크기의 배열 생성
-        int[] answer = new int[count];
-
-        // 3. 다시 돌면서 약수를 배열에 저장
-        int index = 0;
-        for (int i = 1; i <= n; i++) {
-            if (n % i == 0) {
-                answer[index] = i;
-                index++; // 다음 배열 칸으로 이동
-            }
-        }
-
-        return answer;
+        // ArrayList를 int 배열로 변환
+        return answer.stream().mapToInt(i -> i).toArray();
     }
 }
